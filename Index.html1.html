@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FlowCash | Parceria Comercial & Micro SaaS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#050505;--gold:#f5c84c;--gold2:#e0a23a;--gold3:#fde9a2;--line:#5a4720;--tx:#fff;--mu:#9aa1b2;--fd:'Orbitron',system-ui,sans-serif;--fb:'Inter',system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--fb);line-height:1.6;overflow-x:hidden}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,header,footer{position:relative;z-index:1}
+a{color:inherit;text-decoration:none}
+.gold{background:linear-gradient(90deg,var(--gold3),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:calc(12px + env(safe-area-inset-top,0px)) 5vw 12px;background:rgba(5,5,5,.85);backdrop-filter:blur(14px);border-bottom:1px solid #1d1913}
+.brand{display:flex;align-items:center;gap:14px;font-family:var(--fd);font-weight:700;letter-spacing:.14em;font-size:1.15rem}
+.brand i{font-style:normal;color:var(--gold2)}
+.lg{width:46px;height:46px;border-radius:50%;background:#000;border:1px solid var(--line);display:grid;place-items:center;box-shadow:0 0 22px rgba(245,200,76,.25)}
+.lg svg{width:30px}
+nav{display:flex;gap:22px;font-size:.85rem;color:var(--mu)}
+nav a:hover{color:var(--gold)}
+#bt{display:none;width:48px;height:48px;border-radius:14px;background:#111;border:1px solid #2a2a2a;color:#fff;font-size:1.4rem;cursor:pointer}
+@media(max-width:860px){#bt{display:block}header nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#0a0a0a;padding:18px 5vw;border-bottom:1px solid var(--line)}header nav.on{display:flex}}
+section{padding:96px 5vw;max-width:1180px;margin:0 auto}
+.ey{font-family:var(--fd);color:var(--gold);letter-spacing:.2em;font-size:.78rem;display:flex;align-items:center;gap:14px;text-transform:uppercase}
+.ey::before{content:"";width:44px;height:2px;background:linear-gradient(90deg,transparent,var(--gold2))}
+h1,h2{font-weight:800;line-height:1.05;letter-spacing:-.02em;margin:18px 0}
+h1{font-size:clamp(2.2rem,6vw,4.4rem);text-transform:uppercase}
+h2{font-size:clamp(1.9rem,4.4vw,3.2rem)}
+p{color:var(--mu);font-size:1.05rem;max-width:68ch}
+.lead{color:#e9e9f0;font-size:1.2rem}
+.hero{min-height:100vh;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding-top:130px}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.b{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 30px;border-radius:999px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;transition:transform .25s,box-shadow .25s;cursor:pointer;border:1px solid var(--line)}
+.b1{background:linear-gradient(180deg,#fde9a2,#e0a23a);color:#111;border-color:#fde9a2}
+.b1:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(245,200,76,.4)}
+.b2{background:#0b0a08;color:#fff}.b2:hover{border-color:var(--gold)}
+.note{display:flex;gap:12px;color:var(--mu);font-size:.95rem;margin-top:26px;align-items:flex-start}
+.note b{color:var(--gold)}
+.stage{perspective:1000px;display:grid;place-items:center}
+.orb{position:relative;width:min(78vw,380px);aspect-ratio:1;transform-style:preserve-3d;animation:spin 14s linear infinite}
+.orb .disc{position:absolute;inset:14%;border-radius:50%;background:radial-gradient(circle,#000 60%,#0b0904);border:1px solid var(--line);display:grid;place-items:center;box-shadow:0 0 90px rgba(245,200,76,.35),inset 0 0 40px rgba(245,200,76,.12)}
+.orb .disc svg{width:56%;filter:drop-shadow(0 0 18px rgba(245,200,76,.6))}
+.ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(245,200,76,.35)}
+.r2{border-style:dashed;inset:7%;transform:rotateX(70deg);border-color:rgba(245,200,76,.55)}
+.r3{transform:rotateY(70deg)}
+@keyframes spin{to{transform:rotateY(360deg)}}
+.big{font-family:var(--fd);font-weight:900;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:.06em;text-align:center;margin-top:30px}
+.big span{color:#c4c9d4}
+.tag{text-align:center;color:var(--mu);font-family:var(--fd);letter-spacing:.2em;font-size:.75rem;margin-top:8px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;padding-top:30px;padding-bottom:30px}
+@media(max-width:860px){.stats{grid-template-columns:1fr 1fr}}
+.stats div{border-left:3px solid var(--line);padding-left:18px}
+.stats b{display:block;font-size:1.5rem}.stats span{color:var(--mu)}
+.grid{display:grid;gap:22px;margin-top:34px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.g2,.g3{grid-template-columns:1fr}}
+.card{position:relative;background:linear-gradient(145deg,#17140c,#0b0a08);border:1px solid var(--line);border-radius:26px;padding:34px;transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .3s;will-change:transform}
+.card:hover{box-shadow:0 20px 60px rgba(245,200,76,.14);border-color:var(--gold2)}
+.card::before,.card::after{content:"";position:absolute;width:22px;height:22px;border:2px solid var(--line);pointer-events:none}
+.card::before{top:16px;left:16px;border-right:0;border-bottom:0}
+.card::after{bottom:16px;right:16px;border-left:0;border-top:0}
+.card h3{font-size:1.35rem;margin:14px 0 8px}
+.card p{margin:0;font-size:1rem}
+.ic{width:62px;height:62px;border-radius:18px;background:linear-gradient(145deg,#3a2d12,#15110a);border:1px solid var(--line);display:grid;place-items:center;color:var(--gold);font-size:1.5rem;font-family:var(--fd)}
+.n{font-family:var(--fd);font-weight:900;font-size:2.2rem;background:linear-gradient(180deg,#fde9a2,#e0a23a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nr{position:absolute;top:30px;right:34px;font-family:var(--fd);color:#6b7280}
+.sig{margin-top:30px;border:1px solid var(--line);border-radius:20px;padding:24px;text-align:center;font-weight:700;background:linear-gradient(90deg,#1c150a,#080808)}
+.tg{display:flex;gap:10px;align-items:center;border-top:1px solid #222;margin-top:22px;padding-top:16px;color:var(--gold);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.85rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.pct{font-family:var(--fd);font-weight:900;font-size:clamp(3.4rem,9vw,6rem);line-height:1}
+.bar{height:10px;border-radius:9px;background:#1b1b1b;margin-top:22px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold3),var(--gold2));transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.in .bar i{width:var(--w)}
+.small{font-size:.85rem}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0}
+.chips span{border:1px solid var(--gold2);color:var(--gold);padding:10px 20px;border-radius:999px;font-family:var(--fd);letter-spacing:.14em;font-size:.8rem}
+.tabs{display:flex;gap:10px;margin:26px 0;flex-wrap:wrap}
+.tabs button{background:#0b0a08;color:#fff;border:1px solid var(--line);padding:12px 22px;border-radius:999px;cursor:pointer;font:inherit;font-weight:700}
+.tabs button.on{background:linear-gradient(180deg,#fde9a2,#e0a23a);color:#111}
+.up{display:grid;place-items:center;text-align:center;min-height:230px;border:2px dashed var(--line);border-radius:20px;cursor:pointer;padding:20px;margin-top:18px;overflow:hidden;color:var(--mu)}
+.up video{width:100%;border-radius:14px}
+.up b{color:var(--gold);font-family:var(--fd);letter-spacing:.12em;font-size:.8rem}
+.vid.hid{display:none}
+.cta{text-align:center;border:1px solid var(--line);border-radius:34px;background:radial-gradient(circle at 50% 0,#2a200c,#080808 70%);padding:80px 6vw}
+.cta p{margin:0 auto 26px}
+.cta .ey{justify-content:center}
+footer{border-top:1px solid #1d1913;padding:50px 5vw;text-align:center;background:#030303}
+footer nav{justify-content:center;flex-wrap:wrap;margin:22px 0}
+footer small{color:var(--mu)}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s}
+.rv.in{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<svg width="0" height="0" style="position:absolute"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff2b8"/><stop offset=".5" stop-color="#e6ab3c"/><stop offset="1" stop-color="#8a5c14"/></linearGradient><symbol id="F" viewBox="0 0 100 100"><path d="M92 14C70 12 38 16 30 40 52 28 72 30 92 14Z" fill="url(#gg)"/><path d="M95 48 78 40C60 42 40 44 24 56c20-4 42-4 54-4Z" fill="url(#gg)"/><path d="M60 64C46 62 30 66 12 90c18-16 38-20 48-26Z" fill="url(#gg)"/></symbol></defs></svg>
+<header>
+<a class="brand" href="#inicio"><span class="lg"><svg viewBox="0 0 100 100"><use href="#F"/></svg></span><span>FLOW<i>CASH</i></span></a>
+<button id="bt" aria-label="Abrir menu">☰</button>
+<nav id="nv"><a href="#inicio">Início</a><a href="#plataforma">A plataforma</a><a href="#operacao">Como funciona</a><a href="#diferenciais">Diferenciais</a><a href="#parceria">Parceria</a><a href="#reconhecimento">Reconhecimento</a><a href="#faq">Dúvidas frequentes</a></nav>
+</header>
+<main>
+<section class="hero" id="inicio">
+<div>
+<div class="ey">FlowCash | Parceria Comercial &amp; Micro SaaS</div>
+<h1>A decisão que você tomar hoje pode mudar seus <span class="gold">próximos 6 meses.</span></h1>
+<p class="lead">Você pode continuar assistindo outras pessoas construírem suas operações, fecharem contratos e faturarem com a venda de sistemas… Ou pode decidir começar a construir a sua.</p>
+<p>Na FlowCash, você encontra uma estrutura comercial com sistemas para comercializar, treinamentos, ferramentas e materiais de apoio para desenvolver sua atuação em vendas.</p>
+<div class="btns"><a class="b b1" href="#cta">Conhecer a FlowCash ↗</a><a class="b b2" href="#operacao">Ver como funciona →</a></div>
+<div class="note"><b>✓</b>Conheça a proposta e as condições comerciais antes de iniciar sua atuação.</div>
+</div>
+<div class="stage"><div class="orb"><span class="ring"></span><span class="ring r2"></span><span class="ring r3"></span><div class="disc"><svg viewBox="0 0 100 100"><use href="#F"/></svg></div></div>
+<div class="big"><span>FLOW</span><b class="gold">CASH</b></div><div class="tag">SEU PRÓXIMO NÍVEL COMEÇA AQUI.</div></div>
+</section>
+<div class="tag" style="padding-bottom:30px">TECNOLOGIA. CONEXÃO. EXECUÇÃO.</div>
+
+<section class="stats rv">
+<div><b>Sistemas</b><span>prontos para comercializar</span></div>
+<div><b>Até 80%</b><span>de comissão informada</span></div>
+<div><b>Remoto</b><span>possibilidade de atuação</span></div>
+<div><b>Suporte</b><span>técnico pela equipe</span></div>
+</section>
+
+<section id="plataforma" class="rv">
+<div class="ey">01 / A plataforma</div>
+<h2>Parceria Comercial &amp; Micro SaaS</h2>
+<p class="lead">Tecnologia e prospecção comercial em uma parceria transparente.</p>
+<p>A FlowCash desenvolve sistemas voltados às necessidades de empresas e comércios locais. Nossa estrutura técnica é responsável pelo desenvolvimento e pelo suporte dos sistemas, enquanto a atuação comercial é direcionada à prospecção de potenciais clientes, à apresentação das soluções e à realização das vendas.<br>Uma estrutura organizada para quem busca desenvolver uma atuação comercial com orientação, materiais e acompanhamento.</p>
+<div class="grid g3" id="g-plat"></div>
+<div class="sig">Você foca nas vendas. A FlowCash entrega a estrutura.</div>
+</section>
+
+<section id="operacao" class="rv">
+<div class="ey">02 / Entenda a operação</div>
+<h2>Uma estrutura preparada para você focar no comercial.</h2>
+<p>A FlowCash cuida da estrutura técnica dos sistemas, enquanto você concentra seus esforços na prospecção e nas vendas. Não é necessário saber programar para exercer essa função.</p>
+<div class="grid g2" id="g-op"></div>
+<div class="note"><b>✓</b>Os resultados dependem da execução comercial, da demanda, das condições de cada venda e de outros fatores. Não há garantia de vendas, ganhos ou faturamento.</div>
+</section>
+
+<section id="guia" class="rv">
+<div class="ey">Guia comercial – o que você vende</div>
+<h2>Sistemas com IA. <span class="gold">Soluções para negócios reais.</span></h2>
+<p class="lead">Micro SaaS para organizar e automatizar a operação de empresas e comércios locais.</p>
+<div class="grid g2" id="g-guia"></div>
+<div class="sig">Financeiro, clientes, agendamentos, agenda e contratos: menos trabalho manual, mais organização. A criação e a parte técnica ficam com a FlowCash.</div>
+</section>
+
+<section id="rotina" class="rv">
+<div class="ey">Rotina na prática – primeiros passos</div>
+<h2>Do primeiro contato <span class="gold">ao fechamento.</span></h2>
+<p class="lead">Treinamento, materiais e acompanhamento para iniciar sua atuação comercial.</p>
+<div class="grid g2" id="g-rot"></div>
+<div class="sig">Sua atuação é comercial. A equipe cuida da tecnologia.<div class="btns" style="justify-content:center"><a class="b b2" href="#operacao">Ver como funciona</a></div></div>
+</section>
+
+<section id="diferenciais" class="rv">
+<div class="ey">03 / Estrutura que faz a diferença</div>
+<h2>Por que a FlowCash?</h2>
+<p class="lead">Você foca nas vendas. A FlowCash entrega a estrutura.</p>
+<div class="grid g3" id="g-dif"></div>
+</section>
+
+<section id="parceria" class="rv">
+<div class="ey">04 / Modelo de parceria</div>
+<h2>Uma parceria comercial clara</h2>
+<p>O modelo informado pela FlowCash prevê uma divisão de 80% para o vendedor e 20% para a equipe FlowCash sobre o valor da venda, conforme as condições comerciais aplicáveis.</p>
+<div class="card" data-t style="margin-top:30px"><span class="nr">06</span><div class="ic">%</div><h3>Modelo de comissão informado de até 80%</h3><p>Comissão informada de até 80% sobre o valor da venda, conforme as condições comerciais aplicáveis a cada produto.</p></div>
+<div class="split">
+<div class="card" data-t><div class="ey">Vendedor</div><div class="pct gold" data-n="80">0%</div><p>Participação informada na comissão da venda.</p><div class="bar"><i style="--w:80%"></i></div></div>
+<div class="card" data-t><div class="ey">Equipe FlowCash</div><div class="pct gold" data-n="20">0%</div><p>Participação informada na comissão da venda.</p><div class="bar"><i style="--w:20%"></i></div></div>
+</div>
+<p class="small" style="margin-top:22px">Consulte as condições comerciais, a base de cálculo, as eventuais deduções e as regras aplicáveis a cada produto. A comissão não representa garantia de renda.</p>
+</section>
+
+<section id="universo" class="rv">
+<div class="ey">05 / Universo FlowCash</div>
+<h2>Mais do que uma venda. Uma nova trajetória.</h2>
+<p class="lead">Uma estrutura para quem quer empreender no digital, vender soluções reais e desenvolver uma operação comercial com potencial de recorrência.</p>
+<div class="chips"><span>AFILIADOS</span><span>EMPREENDEDORES</span><span>REVENDEDORES</span></div>
+<p>Conheça a proposta, entenda o funcionamento da operação e descubra como desenvolver sua atuação comercial.</p>
+<div class="btns"><a class="b b1" href="#cta">Conhecer a FlowCash ↗</a></div>
+</section>
+
+<section id="reconhecimento" class="rv">
+<div class="ey">06 / Reconhecimento FlowCash</div>
+<h2>Conheça mais de perto o universo FlowCash.</h2>
+<p>Explore os vídeos de apresentação e reconhecimento para conhecer melhor a proposta e a operação.</p>
+<div class="tabs"><button class="on" data-f="all">Todos (02)</button><button data-f="1">01 Apresentação</button><button data-f="2">02 Reconhecimento</button></div>
+<div class="grid g2" style="margin-top:0">
+<div class="card vid" data-v="1" data-t><div class="ey">Área de mídia preparada</div><h3>Apresentação FlowCash</h3><label class="up"><input type="file" accept="video/mp4,video/webm,video/quicktime" hidden><span><b>Toque para enviar o vídeo</b><br><small>MP4, WebM ou MOV • até 500 MB</small></span></label><p style="margin-top:16px"><b class="gold">01</b> Apresentação FlowCash · VÍDEO OFICIAL</p></div>
+<div class="card vid" data-v="2" data-t><div class="ey">Área de mídia preparada</div><h3>Reconhecimento FlowCash</h3><label class="up"><input type="file" accept="video/mp4,video/webm,video/quicktime" hidden><span><b>Toque para enviar o vídeo</b><br><small>MP4, WebM ou MOV • até 500 MB</small></span></label><p style="margin-top:16px"><b class="gold">02</b> Reconhecimento FlowCash · VÍDEO OFICIAL</p></div>
+</div>
+<p class="small" style="margin-top:22px">Os vídeos não representam garantia de ganhos. Consulte os critérios de reconhecimento e as condições da operação.</p>
+</section>
+
+<section id="cta"><div class="cta rv">
+<div class="ey">A sua próxima decisão</div>
+<h2>Seu próximo nível <span class="gold">começa aqui.</span></h2>
+<p>Conheça a proposta da FlowCash, entenda como funciona a estrutura comercial e descubra como você pode desenvolver sua atuação na comercialização de sistemas.</p>
+<a class="b b1" href="#inicio">Conhecer a FlowCash</a>
+<p class="small" style="margin-top:20px">Conheça os recursos e as condições da operação antes de iniciar.</p>
+</div></section>
+<section id="faq" style="padding:10px 5vw"></section>
+</main>
+<footer>
+<div class="brand" style="justify-content:center"><span class="lg"><svg viewBox="0 0 100 100"><use href="#F"/></svg></span><span>FLOW<i>CASH</i></span></div>
+<nav><a href="#inicio">Início</a><a href="#plataforma">A plataforma</a><a href="#operacao">Como funciona</a><a href="#diferenciais">Diferenciais</a><a href="#parceria">Parceria</a><a href="#reconhecimento">Reconhecimento</a><a href="#faq">Dúvidas frequentes</a></nav>
+<small>© FlowCash. Todos os direitos reservados.<br>Parceria Comercial &amp; Micro SaaS</small>
+</footer>
+<script>
+const D={
+plat:[["</>","Tecnologia","Sistemas desenvolvidos para atender necessidades específicas de empresas e negócios locais."],["◎","Comercial","Prospecção de potenciais clientes, apresentação das soluções e condução das oportunidades de venda."],["▤","Estrutura","Orientação comercial, treinamentos e materiais de apoio para auxiliar a atuação dos membros da equipe."]],
+op:[["01","Conheça os sistemas","Entenda as soluções disponíveis e os problemas que elas ajudam a resolver para empresas e comércios locais."],["02","Prepare sua atuação","Utilize o alinhamento inicial, os treinamentos, os roteiros comerciais e os materiais de apoio disponibilizados."],["03","Realize a prospecção","Identifique empresas com potencial de interesse, entre em contato e apresente as soluções adequadas às suas necessidades."],["04","Conduza as vendas","Trabalhe as oportunidades comerciais e acompanhe o processo de venda conforme as orientações da equipe."]],
+guia:[["▦","Agendamento e financeiro","Agenda, controle financeiro e cadastro de clientes para organizar a rotina da empresa."],["♡","Clínicas","Soluções específicas para organizar os agendamentos e a operação de clínicas."],["◈","Estética automotiva","Sistemas para organizar os clientes, a agenda e o trabalho do negócio."],["✂","Barbearias e outros nichos","Tecnologia adaptada aos problemas de empresas e comércios locais."]],
+rot:[["01","Entre no time e alinhe sua atuação","Você entra como vendedor. Recebe treinamento desde o básico, roteiro, materiais e acompanhamento para aprender o processo."],["02","Encontre empresas","Com orientação da equipe, use a ferramenta que encontra 100 empresas por dia para você prospectar e identificar quem pode precisar dos sistemas."],["03","Aborde e apresente a solução","Faça prospecção ativa, priorizando ligações. Entenda a necessidade da empresa, apresente o sistema e busque o fechamento."],["04","Feche a venda com acompanhamento","Você recebe 80% de comissão, conforme as regras da operação. Após a venda, nossa equipe assume o suporte, a manutenção e o acompanhamento do cliente."]],
+dif:[["▤","Sistemas prontos para comercialização","Soluções desenvolvidas para atender empresas e comércios locais, com estrutura pronta para apresentação comercial."],["⚙","Estrutura técnica fornecida pela equipe","Desenvolvimento, hospedagem e manutenção dos sistemas ficam sob responsabilidade da equipe técnica da FlowCash."],["✦","Treinamentos e orientação comercial","Alinhamento inicial, treinamentos práticos e acompanhamento para auxiliar sua atuação em prospecção e vendas."],["▣","Roteiros e materiais de apoio","Scripts comerciais, materiais de apresentação e recursos de apoio disponibilizados para sua atuação."],["⌖","Possibilidade de atuação remota","Atuação comercial desenvolvida de forma remota, com flexibilidade para organizar sua rotina."]]};
+const $=s=>document.querySelector(s);
+function mk(id,arr,o){$(id).innerHTML=arr.map((c,i)=>`<div class="card" data-t>${o.num?`<div class="n">${c[0]}</div>`:`<div class="ic">${c[0]}</div>`}${o.k?`<span class="nr">0${i+1}</span>`:''}<h3>${c[1]}</h3><p>${c[2]}</p>${o.tag?'<div class="tg">✦ Tecnologia FlowCash</div>':''}</div>`).join('')}
+mk('#g-plat',D.plat,{});mk('#g-op',D.op,{num:1});mk('#g-guia',D.guia,{tag:1});mk('#g-rot',D.rot,{num:1});mk('#g-dif',D.dif,{k:1});
+$('#bt').onclick=()=>$('#nv').classList.toggle('on');
+document.querySelectorAll('#nv a').forEach(a=>a.onclick=()=>$('#nv').classList.remove('on'));
+document.querySelectorAll('[data-t]').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(8px)`});c.addEventListener('pointerleave',()=>c.style.transform='')});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-n]').forEach(el=>{const t=+el.dataset.n;let s=null;const f=ts=>{s=s||ts;const p=Math.min((ts-s)/1500,1);el.textContent=Math.round(t*p)+'%';if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)});io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.vid').forEach(v=>v.classList.toggle('hid',b.dataset.f!=='all'&&v.dataset.v!==b.dataset.f))});
+document.querySelectorAll('.up input').forEach(i=>i.onchange=()=>{const f=i.files[0];if(!f)return;const v=document.createElement('video');v.src=URL.createObjectURL(f);v.controls=true;i.parentElement.replaceChildren(v)});
+const cv=$('#fx'),cx=cv.getContext('2d');let W,H,mx=0,my=0,sc=0;
+const P=Array.from({length:150},()=>({x:Math.random()*2-1,y:Math.random()*2-1,z:Math.random()}));
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener('resize',rs);
+addEventListener('pointermove',e=>{mx=e.clientX/W-.5;my=e.clientY/H-.5});
+addEventListener('scroll',()=>sc=scrollY/1500);
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function draw(){cx.clearRect(0,0,W,H);
+const g=cx.createRadialGradient(W*.7,H*.3,0,W*.7,H*.3,W*.7);g.addColorStop(0,'rgba(120,85,20,.22)');g.addColorStop(1,'rgba(0,0,0,0)');cx.fillStyle=g;cx.fillRect(0,0,W,H);
+for(const p of P){p.z-=.0016;if(p.z<=.02)p.z=1;const k=1/p.z,x=W/2+(p.x+mx*.3)*W*.5*k*.45,y=H/2+(p.y+my*.3+sc*.2)*H*.5*k*.45,r=Math.max(.3,(1-p.z)*2.4);
+cx.fillStyle=`rgba(245,200,76,${(1-p.z)*.8})`;cx.beginPath();cx.arc(x,y,r,0,7);cx.fill()}
+cx.strokeStyle='rgba(245,200,76,.07)';cx.lineWidth=1;const hz=H*.62,t=(performance.now()/40)%60;
+for(let i=-12;i<=12;i++){cx.beginPath();cx.moveTo(W/2+i*14+mx*60,hz);cx.lineTo(W/2+i*W*.14+mx*120,H);cx.stroke()}
+for(let j=0;j<10;j++){const y=hz+Math.pow((j*60+t)/600,2)*(H-hz)*1.4;if(y<H){cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke()}}
+if(!rm)requestAnimationFrame(draw)}
+draw();
+</script>
+</body>
+</html>
